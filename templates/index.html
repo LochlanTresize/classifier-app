@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Classifier Web App</title>
+    <!--<script src="../htmx/htmx.min.js"></script><!-->
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+</head>
+<body>
+    <div class="content">
+    <h1 class="header">Enter Some text to classify</h1>
+    <p class="info">The more text entered the more accurate the model will be. The model is currently trained on {{ results }} languages, with more training data parsed for more common languages.</p>
+    <div>
+        <input type="text" class="input" placeholder="Enter text to be classified" name="q" hx-get="/classify" hx-trigger="keyup changed delay:1ms" hx-target="#results">
+    </div>
+    <p id="results" class="result">
+
+    </p>
+    </div>
+</body>
+</html>

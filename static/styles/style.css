@@ -1,0 +1,36 @@
+body{
+    font-family: sans-serif;
+    background-color: #18181B;
+}
+
+
+.content{
+    color: antiquewhite;
+    justify-content: center;
+    padding: 2rem 2rem
+}
+
+.header{
+    padding: 1rem 0rem;
+    align-content: center;
+}
+
+.info{
+    padding: 1rem 0rem;
+}
+
+.input{
+    font-size: medium;
+    border-radius: 5px;
+    height: 2rem;
+    width: 100%;
+    background-color: burlywood;
+    box-sizing: border-box;
+    padding-inline: 2%;
+    word-wrap: break-word;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+.input:focus{
+    border-color: white;
+}
