@@ -2,7 +2,6 @@
 from collections import defaultdict as dd
 import csv
 from math import sqrt
-import numpy as np
 import pickle
 
 # We expect to deal with large csv files when training the model, so adjust the csv field size limit
