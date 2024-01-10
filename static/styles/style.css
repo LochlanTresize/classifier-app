@@ -7,18 +7,17 @@ body{
 .content{
     color: antiquewhite;
     justify-content: center;
-    padding: 2rem 2rem
+    padding: 1rem 2rem
 }
 
 .header{
-    padding: 1rem 0rem;
+    padding: 0rem 0rem;
     align-content: center;
 }
 
 .info{
-    padding: 1rem 0rem;
+    padding: 0rem 0rem;
 }
-
 .input{
     font-size: medium;
     border-radius: 5px;
