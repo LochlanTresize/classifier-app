@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, Blueprint
-from classify import classify_text, info #, load_data
+from classify import classify_text, info
 
 main = Blueprint('main', __name__)
 
