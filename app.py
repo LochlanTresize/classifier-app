@@ -12,7 +12,7 @@ def index():
 @main.route('/classify')
 def classify():
     q = request.args.get('q')
-    language = classify_text(q)
+    language = classify_text(q.lower())
     return render_template('result.html', results=language)
 
 
