@@ -11,10 +11,10 @@
 <body>
     <div class="content">
     <h1 class="header">Enter Some text to classify</h1>
-    <p class="info">Enter more text for a more accurate classification.</p>
+    <p class="info">Enter more text for a more accurate classification (min 3 characters needed).</p>
     
     <div>
-        <input type="text" class="input" placeholder="Enter text to be classified (min three characters)" name="q" hx-get="/classify" hx-trigger="keyup changed delay:1ms" hx-target="#results">
+        <input type="text" class="input" placeholder="Enter text to be classified" name="q" hx-get="/classify" hx-trigger="keyup changed delay:1ms" hx-target="#results">
     </div>
     <p id="results" class="result">
 
