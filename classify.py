@@ -4,9 +4,6 @@ import csv
 from math import sqrt
 import pickle
 
-# We expect to deal with large csv files when training the model, so adjust the csv field size limit
-csv.field_size_limit(100000000)
-
 def count_trigrams(document):
     '''
     count_trigrams takes a string and returns a dictionary of the counts 
@@ -44,11 +41,7 @@ def normalise(language_vector):
 
 
 
-# ## Creating language vectors
-# 
-# We now write a function to read texts from csv files in a training directory. Recall the csv files all have format language, text1, text2. We will return a dictionary of languages with their normalised trigram counts (or normalised language vectors) in the form *{language1: trigram_counts1, Language2: trigram_counts2, ...}*.
-# 
-# In future we should try and clean data to better train the model on - e.g. remove trigrams found in links, code, etc.
+
 
 
 
@@ -89,11 +82,6 @@ def train_classifier(training_directory):
 
     return language_vectors
 
-# ## Scoring Documents
-# We now move on to scoring input documents (performing the above mentioned euclidean inner product).
-# 
-# In future, the below algorithm should be made more efficient, as it is currently somewhat slow. For example, representing data in matrices rather than dictionaries could help speed up matrix multiplication in the inner product calculation. Something similar should also be looked at to try and avoid looping through trained_trigrams, as what happens at the bottom of the above code block.
-
 
 def score_document(document_to_classify, language_vectors):
     '''
@@ -115,15 +103,6 @@ def score_document(document_to_classify, language_vectors):
     
     return languages_scores
 
-# ## Classifying Documents
-# We now implement a method to classify the language a document has been written in.
-# 
-# We do this by finding the language with the highest score in languages_scores and returning it.
-# 
-# To do this we sort the keys in score_document according to the magnitude of their values. We use a tolerance of 1e-10. Should a tie exist in this range, we return both possible languages and ask the user to enter more text.
-# 
-# In future we should allow the user to list out the k most likely languages.
-
 
 def classify_doc(document_to_classify, language_vectors, tolerance, classifying_file=False):
     '''
@@ -141,8 +120,11 @@ def classify_doc(document_to_classify, language_vectors, tolerance, classifying_
     document_to_classify_scores = score_document(document_to_classify, language_vectors)
     
     # initialise the most_common_language to be any of the languages
-    most_common_language = list(document_to_classify_scores.keys())[0]
-    
+    if document_to_classify_scores:
+        most_common_language = list(document_to_classify_scores.keys())[0]
+    else:
+        return '' 
+
     tie = [most_common_language]
 
     
