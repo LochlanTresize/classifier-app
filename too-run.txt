@@ -1,0 +1,3 @@
+to run, enter:
+venv/scripts/activate.bat
+flask run
